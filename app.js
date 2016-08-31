@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var settings = require('./settings');
+var flash = require('connect-flash');
+
 var users = require('./routes/users');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
@@ -24,6 +26,7 @@ app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(flash());
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
